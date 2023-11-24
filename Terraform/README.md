@@ -41,7 +41,8 @@ virsh pool-autostart data-images
 ```
 virsh pool-list
 ```
-![image](https://github.com/galihtw04/kvm-libvirt/assets/96242740/3ff103a0-3626-486e-b150-31ba489753a2)
+![image](https://github.com/galihtw04/Libvirt-Terraform/assets/96242740/37569b38-f7f4-413b-b6df-621b0ab6553a)
+
 
 - create storage disk
 digunakan untuk menyimpan disk server kita, disk ini seperti (vmdk di vmware)
@@ -69,8 +70,8 @@ cp -R kvm-libvirt/Terraform/notvgen/* .
 chmod +x notvgen.sh 
 ls -l
 ```
+![image](https://github.com/galihtw04/Libvirt-Terraform/assets/96242740/26a2846e-6eee-4903-83f2-fc439ed1f5e5)
 
-![image](https://github.com/galihtw04/kvm-libvirt/assets/96242740/71de46b6-c6f0-4ea7-a281-7aef10ab91fd)
 
 - create template server
 ```
@@ -115,8 +116,8 @@ disini kita akan upload image ubuntu22 ke data-storage, image ubuntu akan diguna
 cp ~/qemu/jammy-server-cloudimg-amd64.img /data-images/ubuntu-jammy.img
 virsh pool-refresh --pool data-images
 ```
+![image](https://github.com/galihtw04/Libvirt-Terraform/assets/96242740/12d579e1-9461-4d07-a59e-e019d2481632)
 
-![image](https://github.com/galihtw04/kvm-libvirt/assets/96242740/74ad8665-08ed-42b8-8c4b-2561733ece19)
 
 - create network net-10.20.10
 ```
@@ -162,7 +163,8 @@ verify net-10.20.10
 virsh net-list
 virsh net-dumpxml
 ```
-![image](https://github.com/galihtw04/kvm-libvirt/assets/96242740/c4ed38a5-0296-4d33-9c07-3ce7430f724c)
+![image](https://github.com/galihtw04/Libvirt-Terraform/assets/96242740/9a34b75b-c3c5-4fcc-9dea-7010549a35ef)
+
 
 - create server instance/vm using terraform
 ```
@@ -170,10 +172,10 @@ ls -l
 ./notvgen server server.txt
 ls -l
 ```
+![image](https://github.com/galihtw04/Libvirt-Terraform/assets/96242740/e33ea527-6efe-4d90-926a-11816bcd9d6a)
 
-![image](https://github.com/galihtw04/kvm-libvirt/assets/96242740/51310a3e-a5d0-4064-b902-9325f8dc6500)
+![image](https://github.com/galihtw04/Libvirt-Terraform/assets/96242740/a34c2516-354e-479b-80fc-b87a34eff421)
 
-![image](https://github.com/galihtw04/kvm-libvirt/assets/96242740/7dc0f4fb-4cc1-4ab0-ba20-6bfcce28388e)
 
 create server instance
 ```
@@ -183,16 +185,17 @@ terraform init
 terraform apply -auto-approve
 ```
 
-![image](https://github.com/galihtw04/kvm-libvirt/assets/96242740/e3de4c7d-d43c-4a08-ae6f-2de4bf409a8a)
+![image](https://github.com/galihtw04/Libvirt-Terraform/assets/96242740/76c8855a-91f6-48a7-bc41-22c9e2d55115)
 
-![image](https://github.com/galihtw04/kvm-libvirt/assets/96242740/24d9336b-6931-4d0e-a6fe-d415c0c9a001)
+![image](https://github.com/galihtw04/Libvirt-Terraform/assets/96242740/36084478-fab5-4e0c-9d00-2f1b9a1078b0)
+
 
 - verify akses with ssh
 ```
 ssh 10.20.10.10
 ip -br a
 ```
+![image](https://github.com/galihtw04/Libvirt-Terraform/assets/96242740/eaa329b4-bcb7-4573-a78a-7efd6e5b9c95)
 
-![image](https://github.com/galihtw04/kvm-libvirt/assets/96242740/1b54b1e4-b805-42e8-8b4f-03817c5c2f18)
+![image](https://github.com/galihtw04/Libvirt-Terraform/assets/96242740/3c50f26c-e888-48de-8e02-50500c9ad9d3)
 
-![image](https://github.com/galihtw04/kvm-libvirt/assets/96242740/9bcaa2a7-e93e-4f43-968a-1957a9ff7d90)
