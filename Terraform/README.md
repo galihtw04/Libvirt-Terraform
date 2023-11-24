@@ -41,6 +41,7 @@ virsh pool-autostart data-images
 ```
 virsh pool-list
 ```
+![image](https://github.com/galihtw04/Libvirt-Terraform/assets/96242740/32c1f7eb-933a-47a2-8a42-86b01a27e277)
 
 
 - create storage disk
@@ -58,8 +59,8 @@ virsh pool-autostart data-disk
 ```
 virsh pool-info data-disk
 ```
+![image](https://github.com/galihtw04/Libvirt-Terraform/assets/96242740/381bb4bb-93f7-4bc2-90a8-5920fcf481a2)
 
-![image](https://github.com/galihtw04/kvm-libvirt/assets/96242740/7d3f24b6-ca2d-432e-95d4-27c58c96b027)
 
 - Download binary tvgen
 tvgen kita gunakan untuk membantu kita membuild server
