@@ -1,4 +1,3 @@
-
 # kvm-libvirt
 
 # install qemu/kvm di ubuntu
@@ -13,8 +12,7 @@ notice
 INFO: /dev/kvm exists
 KVM acceleration can be used
 ```
-![image](https://github.com/galihtw04/kvm-libvirt/assets/96242740/b1f0d797-af65-41a0-8e64-45a79a0214c8)
-
+![image](https://github.com/galihtw04/Libvirt-Terraform/assets/96242740/c688ef03-a35b-4881-b4f9-2e0fdd7a40dc)
 
 - install kvm/qemu
 ```
@@ -34,7 +32,7 @@ echo vhost_net | sudo tee -a /etc/modules
 ```
 nano /etc/libvirt/qemu.conf
 ```
-![image](https://github.com/galihtw04/kvm-libvirt/assets/96242740/efce2326-257d-48de-9dc2-f70c142bec51)
+![image](https://github.com/galihtw04/Libvirt-Terraform/assets/96242740/ae2c7a7c-048b-49b7-981d-6f1e46acf9cf)
 
 - set apparmor
 
@@ -63,7 +61,8 @@ sudo ip -br a
 nano /etc/netplan/00-installer-config.yaml
 ```
 
-![image](https://github.com/galihtw04/kvm-libvirt/assets/96242740/ee5d7ccc-38ff-4a80-97dc-53b0970d18ad)
+![image](https://github.com/galihtw04/Libvirt-Terraform/assets/96242740/07bbc66a-92e6-4b0f-b6fc-96b38aef9a02)
+
 
 ```
   bridges:
@@ -87,7 +86,8 @@ netplan apply
 ip -br a
 ```
 
-![image](https://github.com/galihtw04/kvm-libvirt/assets/96242740/d616689c-df25-4b8d-9533-6edeaa1c0b88)
+![image](https://github.com/galihtw04/Libvirt-Terraform/assets/96242740/5773b889-1054-4ce9-8c8a-8459e55232f3)
+
 
 - Untuk setup qemu sudah selesai, sekarang kita akan coba membuat 1 vm
 - selanjutnya kita akan coba download image ubuntu 
@@ -161,7 +161,8 @@ sudo virt-install \
 virsh list
 ```
 
-![image](https://github.com/galihtw04/kvm-libvirt/assets/96242740/fa5d259c-34e3-492f-a190-a24801a2afb7)
+![image](https://github.com/galihtw04/Libvirt-Terraform/assets/96242740/8f4009b9-7aac-4fa4-b87f-f0a80c1af012)
+
 
 - shutdown server
 ```
@@ -170,7 +171,8 @@ virsh shutdown --domain ubuntu-server
 Domain 'ubuntu-server' is being shutdown
 ```
 
-![image](https://github.com/galihtw04/kvm-libvirt/assets/96242740/d3966283-7889-43f9-9b81-f80cb8aa25a6)
+![image](https://github.com/galihtw04/Libvirt-Terraform/assets/96242740/3b6dd9a1-60f2-4b2a-b0b5-f897cb8cea60)
+
 
 - start server
 ```
@@ -178,7 +180,8 @@ virsh start --domain ubuntu-server
 Domain 'ubuntu-server' started
 ```
 
-![image](https://github.com/galihtw04/kvm-libvirt/assets/96242740/5ed15b93-845f-4156-8c31-6785c6ea2e59)
+![image](https://github.com/galihtw04/Libvirt-Terraform/assets/96242740/8931fc98-2a1c-49b0-98f1-d93cbf78a2db)
+
 
 - delete server
 ```
@@ -192,6 +195,7 @@ virsh undefine --domain ubuntu-server
 Domain 'ubuntu-server' has been undefined
 ```
 
-![image](https://github.com/galihtw04/kvm-libvirt/assets/96242740/402abf00-1a41-4a58-8bc9-0da6ba8cf2fc)
+![image](https://github.com/galihtw04/Libvirt-Terraform/assets/96242740/4b3677ab-d422-4996-a782-fa9199d08b0e)
+
 
 > # lanjut ke terraform kawan
