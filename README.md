@@ -196,3 +196,4 @@ Domain 'ubuntu-server' has been undefined
 
 
 > # lanjut ke terraform kawan
+> Terraform [link](https://github.com/galihtw04/Libvirt-Terraform/blob/main/Terraform/README.md)
