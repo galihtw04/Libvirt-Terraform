@@ -2,9 +2,10 @@
 - before disk server1
   - vda1 / = 50G
 
-![image](https://github.com/galihtw04/kvm-libvirt/assets/96242740/06720620-98f1-4dfb-85a9-af14629a34a6)
+![image](https://github.com/galihtw04/Libvirt-Terraform/assets/96242740/8aa0991b-bb88-4f42-9148-13c1d40e8eed)
 
-![image](https://github.com/galihtw04/kvm-libvirt/assets/96242740/ab4fe078-c956-42ed-a408-ba1a7bbaacc9)
+![image](https://github.com/galihtw04/Libvirt-Terraform/assets/96242740/5029314b-7233-4d60-9050-af59333cb264)
+
 
 - expand disk
   - vda1 50G expand to 100G
@@ -12,31 +13,34 @@
 ```
 virsh list --all
 ```
-![image](https://github.com/galihtw04/kvm-libvirt/assets/96242740/d7a2cbf2-1273-4118-ad27-353cb70bd07f)
+![image](https://github.com/galihtw04/Libvirt-Terraform/assets/96242740/d62fcb52-8562-4e6e-b6a1-55ee9105daed)
 
-expand
+  - example command expand
 ```
 virsh vol-resize --pool <name pool> --vol <nama disk vm> --capacity <resize to>
 ```
-
+  - command expand
 ```
 virsh vol-resize --pool data-disk --vol server1-vda.qcow2 --capacity 100G
 ```
-![image](https://github.com/galihtw04/kvm-libvirt/assets/96242740/697ff54d-ac6f-448a-86f8-e06b5373be9e)
+![image](https://github.com/galihtw04/Libvirt-Terraform/assets/96242740/42cd6253-71fd-4a37-b5a7-c181aac54147)
+
 
 start vm
 ```
 virsh start server1
 virsh list --all
 ```
-![image](https://github.com/galihtw04/kvm-libvirt/assets/96242740/a8d328c2-6361-4b47-b1b3-2b8f605e9bb7)
+![image](https://github.com/galihtw04/Libvirt-Terraform/assets/96242740/897edda3-94de-4667-a8bc-21a2622b96d3)
+
 
 - verify
 ```
 ssh 10.20.10.10
 df -h
 ```
-![image](https://github.com/galihtw04/kvm-libvirt/assets/96242740/dba9372f-0027-492c-b3f3-381bab2eb20a)
+![image](https://github.com/galihtw04/Libvirt-Terraform/assets/96242740/d34f00f2-633d-43df-ad8e-66431cf60d97)
+
 
 # remove disk vdb from server1
 
@@ -44,7 +48,7 @@ df -h
 ```
 lsblk
 ```
-![image](https://github.com/galihtw04/kvm-libvirt/assets/96242740/ecfaa3a4-88b4-48a0-a0cc-148974974ca9)
+![image](https://github.com/galihtw04/Libvirt-Terraform/assets/96242740/132b3d23-e74d-42f0-83d0-7394ed7fd0c4)
 
 - take out disk vdb
 ```
@@ -52,9 +56,9 @@ virsh list --all
 virsh detach-disk server1 --target vdb --live
 ```
 
-![image](https://github.com/galihtw04/kvm-libvirt/assets/96242740/a62907aa-6129-4686-af9a-3ceaf002a7a6)
+![image](https://github.com/galihtw04/Libvirt-Terraform/assets/96242740/2a346fdd-fe59-44a3-9866-8ad13d0da87a)
 
-![image](https://github.com/galihtw04/kvm-libvirt/assets/96242740/042df1bf-37eb-4544-87cf-f23aced645ab)
+![image](https://github.com/galihtw04/Libvirt-Terraform/assets/96242740/cc0cd775-47dd-49d8-964a-42b65255448b)
 
 - verify
 ```
@@ -62,20 +66,23 @@ ssh 10.20.10.10
 lsblk
 ```
 
-![image](https://github.com/galihtw04/kvm-libvirt/assets/96242740/4495f195-e185-4914-a2b1-5a93f35cca1c)
+![image](https://github.com/galihtw04/Libvirt-Terraform/assets/96242740/b559cb69-8416-4eba-a8de-e3afa289326b)
+
 
 - take in vdb
 ```
 virsh attach-disk server1 --source /data-disk/server1-vdb.qcow2 --target vdb --live
 ```
-![image](https://github.com/galihtw04/kvm-libvirt/assets/96242740/ae82999c-0b38-4e2e-891e-f3e4996b4dee)
+![image](https://github.com/galihtw04/Libvirt-Terraform/assets/96242740/abd0e35d-5b7e-482c-a530-b2946cdc7494)
+
 
 - verify
 ```
 ssh 10.20.10.10
 lsblk
 ```
-![image](https://github.com/galihtw04/kvm-libvirt/assets/96242740/bc42ffe1-c2b7-4f41-851c-8e186217761d)
+![image](https://github.com/galihtw04/Libvirt-Terraform/assets/96242740/c87d5dd4-a124-48c6-b23c-3e050bbde33b)
+
 
 > # note
 > jika pada linux server terbacanya adalah size allocation dari disk (cara check allocation dan cappacity *virsh vol-list --pool data-disk --details* ), bisa kalian resize disk tersebut menjadi 20G
@@ -87,30 +94,32 @@ lsblk
 qemu-img create -f qcow2 -o preallocation=metadata /data-disk/server2-vdb.qcow2 10G
 virsh vol-list --pool data-disk --details
 ```
-![image](https://github.com/galihtw04/kvm-libvirt/assets/96242740/f0d6a04b-4449-421b-a0d6-9305dfb6a127)
+![image](https://github.com/galihtw04/Libvirt-Terraform/assets/96242740/d7a883d1-1d01-4d3a-bb82-971484535d9f)
 
-![image](https://github.com/galihtw04/kvm-libvirt/assets/96242740/13d8480a-4a4d-47fe-a8ed-01efc0e39fa1)
+![image](https://github.com/galihtw04/Libvirt-Terraform/assets/96242740/1e7dce80-628e-42ed-8400-b9d6e23a21ef)
+
 
 - refresh pool
 ```
 virsh pool-refresh --pool data-disk
 virsh vol-list --pool data-disk --details
 ```
-![image](https://github.com/galihtw04/kvm-libvirt/assets/96242740/4883a301-667d-4e86-a7d3-59a57fdea454)
+![image](https://github.com/galihtw04/Libvirt-Terraform/assets/96242740/82ebb793-2c66-4990-b322-560239e03e54)
 
 - attach disk server2-vdb.qcow2 on server2
 ```
 virsh list --all
 virsh attach-disk server2 --source /data-disk/server2-vdb.qcow2 --target vdb --type disk --subdriver qcow2 --live
 ```
-![image](https://github.com/galihtw04/kvm-libvirt/assets/96242740/46065595-99f6-4e52-80ab-c05d38a365a6)
+![image](https://github.com/galihtw04/Libvirt-Terraform/assets/96242740/dee7a7c5-affb-40ff-9bd3-4a072aa9df5c)
+
 
 - verify
 ```
 ssh 10.20.10.11
 lsblk
 ```
-![image](https://github.com/galihtw04/kvm-libvirt/assets/96242740/e288638e-2872-43e5-8198-af7b230bae33)
+![image](https://github.com/galihtw04/Libvirt-Terraform/assets/96242740/6cbc7b84-59b4-422b-b606-33987925c081)
 
 # create partition
 
@@ -118,13 +127,14 @@ create partition
 ```
 fdisk /dev/vdb
 ```
-![image](https://github.com/galihtw04/kvm-libvirt/assets/96242740/85649355-9168-4371-b916-09e4809de582)
+![image](https://github.com/galihtw04/Libvirt-Terraform/assets/96242740/49a4966a-face-4830-b965-77d7fb83239a)
 
 - format partition
 ```
 mkfs.ext4 /dev/vdb1
 ```
-![image](https://github.com/galihtw04/kvm-libvirt/assets/96242740/d572ef16-2ab2-45ad-929e-c740862c6a00)
+![image](https://github.com/galihtw04/Libvirt-Terraform/assets/96242740/a3b26001-2355-4358-acda-a8452cab24b7)
+
 
 - verify and mount
 ```
@@ -132,4 +142,4 @@ mkdir /disk-extend
 mount /dev/vdb1 /disk/extend
 lsblk
 ```
-![image](https://github.com/galihtw04/kvm-libvirt/assets/96242740/92be4e93-e377-4aed-9d8e-7b8263bcfdcb)
+![image](https://github.com/galihtw04/Libvirt-Terraform/assets/96242740/493752fe-0427-40de-86de-4eb04a9fbac4)
