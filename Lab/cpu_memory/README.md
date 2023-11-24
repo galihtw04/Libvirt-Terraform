@@ -36,7 +36,8 @@ ssh 10.20.10.10 # vm server1
 free -h
 ```
 
-![image](https://github.com/galihtw04/kvm-libvirt/assets/96242740/b79a2f09-ddb3-42ac-a119-b762edc9bc5c)
+![image](https://github.com/galihtw04/Libvirt-Terraform/assets/96242740/cbbfcacf-acf6-4b5b-8b37-411c616114de)
+
 
 > # note
 > jika kalian ingin menurunkan memory bisa set memory ke lebih rendah, tidak perlu set maxmemory lagi, Agar ketika kita ingin expand lagi tidak perlu set max memorynya
