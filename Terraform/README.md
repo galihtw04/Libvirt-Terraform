@@ -41,7 +41,8 @@ virsh pool-autostart data-images
 ```
 virsh pool-list
 ```
-![image](https://github.com/galihtw04/Libvirt-Terraform/assets/96242740/37569b38-f7f4-413b-b6df-621b0ab6553a)
+![image](https://github.com/galihtw04/Libvirt-Terraform/assets/96242740/c3e9cfd0-5ecf-45b6-b85e-1842a665d7a8)
+
 
 
 - create storage disk
