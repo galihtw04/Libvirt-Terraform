@@ -190,9 +190,6 @@ Domain 'ubuntu-server' is being shutdown
 
 virsh undefine --domain ubuntu-server
 Domain 'ubuntu-server' has been undefined
-
-virsh undefine --domain ubuntu-server
-Domain 'ubuntu-server' has been undefined
 ```
 
 ![image](https://github.com/galihtw04/Libvirt-Terraform/assets/96242740/4b3677ab-d422-4996-a782-fa9199d08b0e)
