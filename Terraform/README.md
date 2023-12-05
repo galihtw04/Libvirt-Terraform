@@ -65,7 +65,7 @@ virsh pool-info data-disk
 - Download binary tvgen
 tvgen kita gunakan untuk membantu kita membuild server
 ```
-git clone git@github.com:galihtw04/kvm-libvirt.git
+git clone https://github.com/galihtw04/Libvirt-Terraform.git
 cp -R kvm-libvirt/Terraform/notvgen/* .
 chmod +x notvgen.sh 
 ls -l
