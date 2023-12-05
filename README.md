@@ -145,7 +145,7 @@ sudo virt-install \
 --name ubuntu-server \
 --memory 2048 \
 --disk ubuntu-jammy.img,device=disk,bus=virtio \
---disk common-init.iso,device=cdrom \
+--disk user.iso,device=cdrom \
 --os-type linux \
 --os-variant ubuntu22.10 \
 --virt-type qemu \
