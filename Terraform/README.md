@@ -66,7 +66,7 @@ virsh pool-info data-disk
 tvgen kita gunakan untuk membantu kita membuild server
 ```
 git clone https://github.com/galihtw04/Libvirt-Terraform.git
-cp -R kvm-libvirt/Terraform/notvgen/* .
+cp -R Libvirt-Terraform/Terraform/notvgen/* .
 chmod +x notvgen.sh 
 ls -l
 ```
