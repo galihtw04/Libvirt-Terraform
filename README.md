@@ -34,8 +34,12 @@ nano /etc/libvirt/qemu.conf
 ```
 ![image](https://github.com/galihtw04/Libvirt-Terraform/assets/96242740/ae2c7a7c-048b-49b7-981d-6f1e46acf9cf)
 
-- set apparmor
+- restart libvirt
+```
+sudo systemctl restart libvirtd.service
+```
 
+- set apparmor
 ```
 nano  /etc/apparmor.d/libvirt/TEMPLATE.qemu
 ```
@@ -153,6 +157,8 @@ sudo virt-install \
 --network network=default,model=virtio \
 --import
 ```
+> note
+> jika ada error terkait permission bisa di reboot host/server kalian, karena permission yang kita set user dan group belum terapply
 
 * Jika mau keluar dari console bisa menggunakan shortcut *CTRL + ]*
 
