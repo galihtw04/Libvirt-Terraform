@@ -3,34 +3,34 @@ check partition yang akan digunakan untuk target VG
 ```
 lsblk
 ```
-![image](https://github.com/galihtw04/kvm-libvirt/assets/96242740/61346637-d593-49ff-a3eb-3b0d3c8e0b52)
+![image](https://github.com/galihtw04/Libvirt-Terraform/assets/96242740/8d5d3e6c-35b3-4681-90bd-d4dcbb6d8d25)
 
 create PV
 ```
 pvcreate /dev/vdb1
 pvs
 ```
-![image](https://github.com/galihtw04/kvm-libvirt/assets/96242740/29ebcca6-2389-4d81-bd53-866ae9566401)
+![image](https://github.com/galihtw04/Libvirt-Terraform/assets/96242740/7746d020-d9a4-4da1-94f1-67e64d17f294)
 
 create VG
 ```
 vgcreate nfs-share /dev/vdb1
 vgs
 ```
-![image](https://github.com/galihtw04/kvm-libvirt/assets/96242740/d0fb5421-f131-4f5f-84d3-91c795089bdb)
+![image](https://github.com/galihtw04/Libvirt-Terraform/assets/96242740/e434c9f0-08f6-429b-ac50-5b11b3172876)
 
 create Lv
 ```
 lvcreate -l 100%FREE -n lvshare nfs-share
 lvs
 ```
-![image](https://github.com/galihtw04/kvm-libvirt/assets/96242740/2f100286-b230-4c9a-a327-a226091d96af)
+![image](https://github.com/galihtw04/Libvirt-Terraform/assets/96242740/47ad2b87-95ac-4392-8adb-230ce7b7f583)
 
 check
 ```
 lsblk
 ```
-![image](https://github.com/galihtw04/kvm-libvirt/assets/96242740/ec3ba3e2-bd23-444b-be7c-573daf631040)
+![image](https://github.com/galihtw04/Libvirt-Terraform/assets/96242740/ddeb5c59-1c03-428a-b0e4-79e8e9a6800b)
 
 format lvm and mount
 ```
@@ -38,7 +38,8 @@ mkfs.ext4  /dev/nfs-share/lvshare
 mkdir /nfs-share
 mount /dev/mapper/nfs--share-lvshare /nfs-share/
 ```
-![image](https://github.com/galihtw04/kvm-libvirt/assets/96242740/65a55de7-5474-4a7d-b495-922914768eb7)
+![image](https://github.com/galihtw04/Libvirt-Terraform/assets/96242740/c2ac8e1a-bae4-425d-b778-89200ae90cad)
+
 
 mount permanent in fstab
 check id
@@ -56,13 +57,13 @@ nano /etc/fstab
 # lvm nfs--share-lvshare
 UUID=46fdbf87-db28-494b-87a9-92794ca40f98       /nfs-share      ext4   defaults   0   0
 ```
-![image](https://github.com/galihtw04/kvm-libvirt/assets/96242740/d2c63c03-a145-4c0b-adc0-1190c8ca82a2)
+![image](https://github.com/galihtw04/Libvirt-Terraform/assets/96242740/b0af7a20-34ba-4941-a2ee-792d05368ac9)
 
 apply fstab
 ```
 mount -a
 ```
-![image](https://github.com/galihtw04/kvm-libvirt/assets/96242740/0a7a9f20-1c95-423f-b7c1-e27d4b56dfb4)
+![image](https://github.com/galihtw04/Libvirt-Terraform/assets/96242740/8491d8ee-e1a3-463a-b755-60ad98558a53)
 
 # remove VG and lvm
 
@@ -70,14 +71,14 @@ remove or comment mounting in /etc/fstab
 ```
 nano /etc/fstab
 ```
-![image](https://github.com/galihtw04/kvm-libvirt/assets/96242740/010f64f4-07ba-4195-823f-e5725aab976c)
+![image](https://github.com/galihtw04/Libvirt-Terraform/assets/96242740/66079922-5cb9-416a-b639-4dd70623a68a)
 
 umount /nfs-share
 ```
 umount /nfs-share/
 lsblk
 ```
-![image](https://github.com/galihtw04/kvm-libvirt/assets/96242740/ee307538-07df-4f97-ac25-54726bc10cca)
+![image](https://github.com/galihtw04/Libvirt-Terraform/assets/96242740/523f6863-735d-478e-acc6-01f542efd6f7)
 
 remove lvm
 ```
@@ -86,27 +87,27 @@ lvremove /dev/nfs-share/lvshare
 Do you really want to remove and DISCARD logical volume nfs-share/lvshare? [y/n]: y
 lvs
 ```
-![image](https://github.com/galihtw04/kvm-libvirt/assets/96242740/8fe8c61a-ccbb-46d3-bf51-55263432606e)
+![image](https://github.com/galihtw04/Libvirt-Terraform/assets/96242740/b64d97db-3ee3-4452-a42b-1083bf82f71f)
 
 checking
 ```
 lsblk
 ```
-![image](https://github.com/galihtw04/kvm-libvirt/assets/96242740/0483aa35-37ea-4d8b-bfb1-75ebccfe9c40)
+![image](https://github.com/galihtw04/Libvirt-Terraform/assets/96242740/2014dac8-f65b-481d-9cb4-685ec247b345)
 
 remove vg
 ```
 vgs
 vgremove nfs-share
 ```
-![image](https://github.com/galihtw04/kvm-libvirt/assets/96242740/e533873e-ce00-4ddf-9138-0cafefb60269)
+![image](https://github.com/galihtw04/Libvirt-Terraform/assets/96242740/5ef77230-7710-43a8-8f14-d27700c8ccfd)
 
 remove PV
 ```
 pvs
 pvremove /dev/vdb1
 ```
-![image](https://github.com/galihtw04/kvm-libvirt/assets/96242740/9a33ff67-8d1c-40f8-a9a6-ef44c68fdfed)
+![image](https://github.com/galihtw04/Libvirt-Terraform/assets/96242740/6a4c04bd-468d-4a8c-9b13-4cd4c6ca8edd)
 
 remove partition
 ```
@@ -132,4 +133,4 @@ checking
 ```
 lsblk
 ```
-![image](https://github.com/galihtw04/kvm-libvirt/assets/96242740/dfa62f2e-ed0b-4ea7-a9d7-3eac10cdfd7a)
+![image](https://github.com/galihtw04/Libvirt-Terraform/assets/96242740/88a0f0ea-e32c-4080-84a9-952d245fcef1)
